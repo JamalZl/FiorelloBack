@@ -11,7 +11,6 @@ namespace Fiorello.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public List<Expert> Experts { get; set; }
-        public List<Slider> Sliders { get; set; }
         
     }
 }

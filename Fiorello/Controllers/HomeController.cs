@@ -24,7 +24,9 @@ namespace Fiorello.Controllers
             HomeVM homeVM = new HomeVM()
             {
                 settings = _context.Settings.ToList(),
-                professions = _context.Professions.Include(e => e.Experts).ToList()
+                professions = _context.Professions.Include(e => e.Experts).ToList(),
+                Categories=_context.Categories.ToList(),
+                Flowers=_context.Flowers.Include(f=>f.FlowerImages).Include(f=>f.FlowerCategories).ThenInclude(fc=>fc.Category).Include(f=>f.Campaigns).ToList()
         };
             return View(homeVM);
         }

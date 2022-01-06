@@ -11,5 +11,7 @@ namespace Fiorello.ViewModel
         public List<Settings> settings { get; set; }
         public List<Expert> experts { get; set; }
         public List<Profession> professions { get; set; }
+        public List<Flower> Flowers { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }

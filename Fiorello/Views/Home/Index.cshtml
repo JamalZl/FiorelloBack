@@ -41,22 +41,20 @@
                     <div id="dropDownCategory">
                         <ul class="flowerTypes">
                             <li><a class="types" data-id="all" href="#">ALL</a></li>
-                            <li><a class="types" data-id="popular" href="#">POPULAR</a></li>
-                            <li><a class="types" data-id="winter" href="#">WINTER</a></li>
-                            <li><a class="types" data-id="various" href="#">VARIOUS</a></li>
-                            <li><a class="types" data-id="exotic" href="#">EXOTIC</a></li>
-                            <li><a class="types" data-id="greens" href="#">GREENS</a></li>
-                            <li><a class="types" data-id="cactuses" href="#">CACTUSES</a></li>
+                            @foreach (Category category  in Model.Categories)
+                            {
+                                <li><a class="types" data-id="@category.Name.ToLower()" href="#">@category.Name.ToUpper()</a></li>
+
+                            }
                         </ul>
                     </div>
                     <ul class="flowerTypes col-lg-6 d-flex justify-content-around">
                         <li><a class="types" data-id="all" href="#">ALL</a></li>
-                        <li><a class="types" data-id="popular" href="#">POPULAR</a></li>
-                        <li><a class="types" data-id="winter" href="#">WINTER</a></li>
-                        <li><a class="types" data-id="various" href="#">VARIOUS</a></li>
-                        <li><a class="types" data-id="exotic" href="#">EXOTIC</a></li>
-                        <li><a class="types" data-id="greens" href="#">GREENS</a></li>
-                        <li><a class="types" data-id="cactuses" href="#">CACTUSES</a></li>
+                        @foreach (Category categ in Model.Categories)
+                        {
+                            <li><a class="types" data-id="@categ.Name.ToLower()" href="#">@categ.Name.ToUpper()</a></li>
+
+                        }
                     </ul>
                 </div>
                 <div class="filter col-lg-2">
@@ -68,117 +66,7 @@
 
             </div>
             <div class="products d-flex flex-wrap ">
-                <div class="product all  winter cactuses" data-id="1">
-                    <div class="image">
-                        <img src="~/assets/images/shop-14-img.jpg" alt="">
-                    </div>
-                    <div class="productName">
-                        MAJESTY PALM
-                    </div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-                            <div class="price"><span style="font-size: 12px;">259</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all  greens exotic various " data-id="2">
-                    <div class="image">
-                        <img src="~/assets/images/shop-13-img.jpg" alt="">
-                    </div>
-                    <div class="productName">FOXGLOVE FLOWER</div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price"><span style="font-size: 12px;">259</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all winter greens popular cactuses" data-id="3">
-                    <div class="image">
-                        <div class="sold"><span>Sold</span> </div>
-                        <img src="~/assets/images/shop-10-img.jpg" alt="">
-                    </div>
-                    <div class="productName">
-                        SWEET ALYSSUM
-                    </div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price"><span style="font-size: 12px;">259</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all winter various popular" data-id="4">
-                    <div class="image">
-                        <img src="~/assets/images/shop-11-img.jpg" alt="">
-                    </div>
-                    <div class="productName">SPRING SNOWFLAKE</div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price"><span style="font-size: 12px;">170</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all  popular" data-id="5">
-                    <div class="image">
-                        <div class="sale"><span>Sale</span></div>
-                        <img src="~/assets/images/shop-12-img.jpg" alt="">
-                    </div>
-                    <div class="productName">SCARLET SAGE</div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price">
-                                <span style="font-size: 12px;">159</span><span>$</span><del>259$</del>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all cactuses various" data-id="6">
-                    <div class="image">
-                        <img src="~/assets/images/shop-9-img.jpg" alt="">
-                    </div>
-                    <div class="productName">ROCK SOAPWORD</div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price"><span style="font-size: 12px;">259</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all exotic greens winter" data-id="7">
-                    <div class="image">
-                        <img src="~/assets/images/shop-8-img.jpg" alt="">
-                    </div>
-                    <div class="productName">SUMMER SAVORY</div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price"><span style="font-size: 12px;">259</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product all exotic winter" data-id="8">
-                    <div class="image">
-                        <img src="~/assets/images/shop-7-img.jpg" alt="">
-                    </div>
-                    <div class="productName">WILD ROSES</div>
-                    <div class="productPrice cart-container d-flex justify-content-center">
-                        <div class="addToCart d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-
-                            <div class="price"><span style="font-size: 12px;">259</span><span>$</span></div>
-                        </div>
-                    </div>
-                </div>
+                @await Html.PartialAsync("_PartialView")
             </div>
         </div>
     </div>
