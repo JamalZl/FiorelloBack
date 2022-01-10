@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Fiorello.Models
 {
-    public class FlowerImage
+    public class FlowerTag
     {
         public int Id { get; set; }
-        public string Image { get; set; }
-        public bool IsMain { get; set; }
         public int FlowerId { get; set; }
+        public int TagId { get; set; }
+        public Tag Tag { get; set; }
         public Flower Flower { get; set; }
     }
 }

@@ -4,14 +4,16 @@ using Fiorello.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Fiorello.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220109203548_updatedCampaignDiscount")]
+    partial class updatedCampaignDiscount
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,16 +84,13 @@ namespace Fiorello.Migrations
                     b.Property<int?>("CampaignId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Dimension")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FlowerCode")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("InStock")
+                    b.Property<bool>("IsMain")
                         .HasColumnType("bit");
 
                     b.Property<string>("Name")
@@ -145,36 +144,11 @@ namespace Fiorello.Migrations
                     b.Property<string>("Image")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsMain")
-                        .HasColumnType("bit");
-
                     b.HasKey("Id");
 
                     b.HasIndex("FlowerId");
 
                     b.ToTable("FlowerImages");
-                });
-
-            modelBuilder.Entity("Fiorello.Models.FlowerTag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("FlowerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("TagId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("FlowerId");
-
-                    b.HasIndex("TagId");
-
-                    b.ToTable("FlowerTags");
                 });
 
             modelBuilder.Entity("Fiorello.Models.Profession", b =>
@@ -206,21 +180,6 @@ namespace Fiorello.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Settings");
-                });
-
-            modelBuilder.Entity("Fiorello.Models.Tag", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Tags");
                 });
 
             modelBuilder.Entity("Fiorello.Models.Expert", b =>
@@ -259,21 +218,6 @@ namespace Fiorello.Migrations
                     b.HasOne("Fiorello.Models.Flower", "Flower")
                         .WithMany("FlowerImages")
                         .HasForeignKey("FlowerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("Fiorello.Models.FlowerTag", b =>
-                {
-                    b.HasOne("Fiorello.Models.Flower", "Flower")
-                        .WithMany("FlowerTags")
-                        .HasForeignKey("FlowerId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("Fiorello.Models.Tag", "Tag")
-                        .WithMany("FlowerTags")
-                        .HasForeignKey("TagId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

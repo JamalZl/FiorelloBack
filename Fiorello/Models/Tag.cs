@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Fiorello.Models
 {
-    public class Campaign
+    public class Tag
     {
         public int Id { get; set; }
-        public int DiscountPercent { get; set; }
-        public List<Flower> Flowers { get; set; }
+        public string Name { get; set; }
+        public List<FlowerTag> FlowerTags { get; set; }
     }
 }

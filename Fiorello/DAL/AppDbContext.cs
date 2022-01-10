@@ -21,6 +21,9 @@ namespace Fiorello.DAL
      public DbSet<FlowerImage> FlowerImages { get; set; }
      public DbSet<Category> Categories { get; set; }
      public DbSet<Campaign> Campaigns { get; set; }
+     public DbSet<Tag> Tags { get; set; }
+     public DbSet<FlowerTag> FlowerTags { get; set; }
+
 
     }
 }
