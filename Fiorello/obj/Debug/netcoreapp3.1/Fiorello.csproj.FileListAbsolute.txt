@@ -147,3 +147,15 @@ C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\zh-Han
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_PartialView.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Flower\Details.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Shared\_Layout.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\_ViewImports.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\_ViewStart.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Dashboard\Index.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Index.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Edit.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Create.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Delete.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Create.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Edit.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Delete.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Index.cshtml.g.cs
