@@ -18,10 +18,13 @@ namespace Fiorello.Controllers
         {
             _context = context;
         }
-        public IActionResult Details(int id)
+        public IActionResult Details(int id,int categoryId)
         {
             Flower flower = _context.Flowers.Include(f=>f.Campaigns).Include(f=>f.FlowerCategories).ThenInclude(fc=>fc.Category).Include(f=>f.FlowerTags).ThenInclude(ft=>ft.Tag).Include(f=>f.FlowerImages).FirstOrDefault(f => f.Id == id);
             if (flower == null) return NotFound();
+            ViewBag.RelatedFlowers = _context.Flowers.Include(f => f.FlowerCategories).ThenInclude(f=>f.Category).Include(f=>f.Campaigns).Include(f=>f.FlowerImages).Where(f=>f.FlowerCategories.FirstOrDefault().CategoryId==categoryId).Take(4).ToList();
+            //List<Flower> flowers = _context.Flowers.Include(f => f.FlowerCategories).ThenInclude(f => f.Category).Include(f => f.Campaigns).Include(f => f.FlowerImages).Where(f => f.FlowerCategories.FirstOrDefault().CategoryId == categoryId).Take(4).ToList();
+            //return Json(flowers);
             return View(flower);
         }
         public IActionResult AddBasket(int id)

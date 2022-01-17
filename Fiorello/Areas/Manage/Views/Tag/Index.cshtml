@@ -43,13 +43,12 @@
             <i class="mdi mdi-file-check btn-icon-append"></i>
             Edit
         </a>
-        <a asp-controller="tag" asp-action="delete" asp-route-id="@tag.Id" class="btn btn-danger btn-icon-text">
+        <a asp-controller="tag" asp-action="delete" asp-route-id="@tag.Id" class="btn btn-danger btn-icon-text delete-tag">
             <i class="mdi mdi-alert btn-icon-prepend"></i>
             Delete
         </a>
     </td>
-</tr>
-            }
+</tr>}
         </tbody>
     </table>
     <div class="row justify-content-center mt-4">
@@ -62,7 +61,8 @@
 
                 @for (int i = 1; i <= ViewBag.TotalPage; i++)
                 {
-    <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events: @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="tag" asp-action="index" asp-route-page="@i">@i</a></li>}
+    <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events: @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="tag" asp-action="index" asp-route-page="@i">@i</a></li>
+}
 
                 <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPage ? "disabled" : "")">
                     <a class="page-link" asp-controller="tag" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)">Next</a>
@@ -71,3 +71,37 @@
         </nav>
     </div>
 </div>
+@section Scripts{
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        $(".delete-tag").click(function (e) {
+            e.preventDefault()
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var link = $(this).attr("href");
+                    fetch(link).then(response => response.json()).then(data => {
+                        if (data.status == 200) {
+                            location.reload(true)
+                        } else {
+                            Swal.fire(
+                                'Not found!',
+                                'Your file can not be deleted.',
+                                'Failed'
+                            )
+                        }
+                    }
+
+                    );
+                }
+            })
+        })
+    </script>
+}

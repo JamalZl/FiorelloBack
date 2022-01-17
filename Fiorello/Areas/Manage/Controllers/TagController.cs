@@ -77,16 +77,10 @@ namespace Fiorello.Areas.Manage.Controllers
         public IActionResult Delete(int id)
         {
             Tag tag = _context.Tags.FirstOrDefault(c => c.Id == id);
-            return View(tag);
-        }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Delete(Tag tag)
-        {
-            Tag existedTag = _context.Tags.FirstOrDefault(c => c.Id == tag.Id);
-            _context.Tags.Remove(existedTag);
+            if (tag == null) return Json(new { status = 404 });
+            _context.Tags.Remove(tag);
             _context.SaveChanges();
-            return RedirectToAction(nameof(Index));
+            return Json(new { status = 200 });
         }
     }
 }

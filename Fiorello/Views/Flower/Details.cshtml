@@ -1,6 +1,7 @@
 ﻿@model Flower
 @{
     ViewData["Title"] = "Index";
+    List<Flower> related = ViewBag.RelatedFlowers;
 }
 <section id="shopproductNameLis">
     <div class="container">
@@ -229,54 +230,7 @@
         <div class="row">
             <h3>RELATED PRODUCTS</h3>
             <div class="products d-flex justify-content-between">
-                <div class="product col col-lg-3 col-md-6 col-sm-12">
-                    <div class="image"><img src="~/assets/images/producthover1.jpg" alt=""></div>
-                    <div class="productName">
-                        SWEET ALYSSUM
-                    </div>
-                    <div class="productPrice  d-flex justify-content-center">
-                        <div class="addToCard d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-                            <div class="price"><span>259$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product col col-lg-3 col-md-6 col-sm-12">
-                    <div class="image"><img src="~/assets/images/producthover2.jpg" alt=""></div>
-                    <div class="productName">
-                        SWEET ALYSSUM
-                    </div>
-                    <div class="productPrice  d-flex justify-content-center">
-                        <div class="addToCard d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-                            <div class="price"><span>259$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product col col-lg-3 col-md-6 col-sm-12">
-                    <div class="image"><img src="~/assets/images/producthover3.jpg" alt=""></div>
-                    <div class="productName">
-                        SWEET ALYSSUM
-                    </div>
-                    <div class="productPrice  d-flex justify-content-center">
-                        <div class="addToCard d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-                            <div class="price"><span>259$</span></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="product col col-lg-3 col-md-6 col-sm-12">
-                    <div class="image"><img src="~/assets/images/producthover4.jpg" alt=""></div>
-                    <div class="productName">
-                        SWEET ALYSSUM
-                    </div>
-                    <div class="productPrice  d-flex justify-content-center">
-                        <div class="addToCard d-flex justify-content-center">
-                            <div class="text"><span>Add to cart</span></div>
-                            <div class="price"><span>259$</span></div>
-                        </div>
-                    </div>
-                </div>
+                @await Html.PartialAsync("_PartialView", related)
             </div>
         </div>
     </div>

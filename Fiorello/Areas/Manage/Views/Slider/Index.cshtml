@@ -1,9 +1,9 @@
-﻿@model List<Category>
+﻿@model List<Slider>
 @{ ViewData["Title"] = "Index"; }
 
 <div class="container">
     <div class="mt-2 d-flex" style="justify-content:flex-end">
-        <a asp-controller="category" asp-action="create" class="btn btn-success btn-icon-text">
+        <a asp-controller="slider" asp-action="create" class="btn btn-success btn-icon-text">
             <i class="mdi mdi-upload btn-icon-prepend"></i>
             Create
         </a>
@@ -15,10 +15,16 @@
                     #
                 </th>
                 <th>
-                    Category name
+                    Slider Image
                 </th>
                 <th>
-                    Flower count
+                    Title
+                </th>
+                <th>
+                    Subtitle
+                </th>
+                <th>
+                    Signature
                 </th>
                 <th>
                     Settings
@@ -26,50 +32,44 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (Category category in Model)
+            @foreach (Slider slider in Model)
             {
 <tr>
     <td>
-        @category.Id
+        @slider.Id
     </td>
     <td>
-        @category.Name
+        <img style="width:80px;height:80px;" src="~/assets/images/@slider.SliderImage" alt="slider image" />
     </td>
     <td>
-        @category.FlowerCategories.Count
+        @slider.Title
+    </td>
+    @if (slider.Subtitle.Length > 25)
+    {
+<td>
+    @slider.Subtitle.Substring(0, 25)...
+</td> }
+                else
+                {
+<td>
+    @slider.Subtitle
+</td>                }
+    <td>
+        <img style="width:100px;height:100px;object-fit:contain" src="~/assets/images/@slider.SignatureImage" alt="signature image" />
     </td>
     <td>
-        <a asp-controller="category" asp-action="edit" asp-route-id="@category.Id" class="btn btn-warning btn-icon-text">
+        <a asp-controller="slider" asp-action="edit" asp-route-id="@slider.Id" class="btn btn-warning btn-icon-text">
             <i class="mdi mdi-file-check btn-icon-append"></i>
             Edit
         </a>
-        <a asp-controller="category" asp-action="delete" asp-route-id="@category.Id" class="btn btn-danger btn-icon-text  delete-item">
+        <a asp-controller="slider" asp-action="delete" asp-route-id="@slider.Id" class="btn btn-danger btn-icon-text delete-item">
             <i class="mdi mdi-alert btn-icon-prepend"></i>
             Delete
         </a>
     </td>
-</tr>
-            }
+</tr>            }
         </tbody>
     </table>
-    <div class="row justify-content-center mt-4">
-        <nav aria-label="...">
-            <ul class="pagination" style="justify-content:center">
-
-                <li class="page-item @(ViewBag.Currentpage == 1 ? "disabled" : "")">
-                    <a class="page-link" asp-controller="category" asp-action="index" asp-route-page="@(ViewBag.CurrentPage-1)">Previous</a>
-                </li>
-
-                @for (int i = 1; i <= ViewBag.TotalPage; i++)
-                {
-    <li class="page-item  @(ViewBag.CurrentPage == i ? "active" : "")" style="pointer-events: @(ViewBag.CurrentPage == i ? "none" : "")"><a class="page-link" asp-controller="category" asp-action="index" asp-route-page="@i">@i</a></li>}
-
-                <li class="page-item @(ViewBag.CurrentPage == ViewBag.TotalPage ? "disabled" : "")">
-                    <a class="page-link" asp-controller="category" asp-action="index" asp-route-page="@(ViewBag.CurrentPage +1)">Next</a>
-                </li>
-            </ul>
-        </nav>
-    </div>
 </div>
 @section Scripts{
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -103,3 +103,4 @@
             })
         })</script>
 }
+

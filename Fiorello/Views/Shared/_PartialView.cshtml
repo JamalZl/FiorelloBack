@@ -1,5 +1,5 @@
-﻿
-@foreach (Flower flower in Model.Flowers)
+﻿@model List<Flower>
+@foreach (Flower flower in Model)
 {
 <div class="product all  @foreach (FlowerCategory flowerCategory in flower.FlowerCategories)
                         {
@@ -12,10 +12,9 @@
             {
                 @if (flowerImage.IsMain == true)
                 {
-                    <a asp-controller="flower" asp-action="details" asp-route-id="@flower.Id">
+                    <a asp-controller="flower" asp-action="details" asp-route-id="@flower.Id" >
                         <img src="~/assets/images/@flowerImage.Image" alt="">
                     </a>
-
                 }
             }
         </div>

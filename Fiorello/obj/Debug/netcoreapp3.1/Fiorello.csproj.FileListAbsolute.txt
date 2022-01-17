@@ -154,8 +154,11 @@ C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Index.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Edit.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Create.cshtml.g.cs
-C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Category\Delete.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Create.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Edit.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Delete.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Tag\Index.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Index.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Index.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Create.cshtml.g.cs
