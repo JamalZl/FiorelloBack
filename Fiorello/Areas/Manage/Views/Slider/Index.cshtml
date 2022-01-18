@@ -62,8 +62,8 @@
             <i class="mdi mdi-file-check btn-icon-append"></i>
             Edit
         </a>
-        <a asp-controller="slider" asp-action="delete" asp-route-id="@slider.Id" class="btn btn-danger btn-icon-text delete-item">
-            <i class="mdi mdi-alert btn-icon-prepend"></i>
+        <a asp-controller="slider" asp-action="delete" asp-route-id="@slider.Id" class="btn btn-danger btn-icon-text delete-item ">
+            <i class="mdi mdi-alert btn-icon-prepend "></i>
             Delete
         </a>
     </td>
@@ -73,7 +73,8 @@
 </div>
 @section Scripts{
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>$(".delete-item").click(function (e) {
+    <script>
+        $(".delete-item").click(function (e) {
             e.preventDefault()
             Swal.fire({
                 title: 'Are you sure?',

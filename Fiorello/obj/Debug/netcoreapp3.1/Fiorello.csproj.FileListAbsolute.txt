@@ -162,3 +162,4 @@ C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Slider\Create.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Index.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Create.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Edit.cshtml.g.cs

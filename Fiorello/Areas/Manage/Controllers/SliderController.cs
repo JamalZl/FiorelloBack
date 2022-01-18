@@ -60,10 +60,15 @@ namespace FiorelloBack.Areas.Manage.Controllers
         
         public IActionResult Delete(int id)
         {
-            Slider slider = _context.Sliders.FirstOrDefault(c => c.Id == id);
+            Slider slider = _context.Sliders.FirstOrDefault(s => s.Id == id);
+            Slider existSlider = _context.Sliders.FirstOrDefault(es => es.Id == slider.Id);
+            if (existSlider == null) return NotFound();
             if (slider == null) return Json(new { status = 404 });
+
+            Fiorello.Helpers.Helper.DeleteImg(_env.WebRootPath, "assets/images", slider.SliderImage);
+            Fiorello.Helpers.Helper.DeleteImg(_env.WebRootPath, "assets/images", slider.SignatureImage);
+
             _context.Sliders.Remove(slider);
-            using(FileStream fileStream=new FileStream())
             _context.SaveChanges();
             return Json(new { status = 200 });
         }
