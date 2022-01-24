@@ -62,6 +62,7 @@ $(document).ready(function () {
         $(".menuElementsLi i").toggleClass("myRotate");
     })
 
+
     ///////////goToTop///////////
     $(window).scroll(function () {
         if (window.scrollY >= 650) {

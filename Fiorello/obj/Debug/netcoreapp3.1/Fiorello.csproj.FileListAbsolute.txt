@@ -163,3 +163,11 @@ C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Index.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Create.cshtml.g.cs
 C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Areas\Manage\Views\Flower\Edit.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Core.dll
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
+C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\obj\Debug\netcoreapp3.1\Razor\Views\Flower\Search.cshtml.g.cs

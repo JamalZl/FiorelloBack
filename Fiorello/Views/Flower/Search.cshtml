@@ -1,0 +1,55 @@
+﻿@model  List<Flower>
+@{
+    ViewData["Title"] = "Search";
+}
+
+<div style="margin-top:50px;margin-bottom:50px;" class="container">
+    <h3>Search here</h3>
+    <div asp-validation-summary="ModelOnly"></div>
+    <form asp-action="search" asp-controller="flower" method="get">
+        <input type="search" name="keyword" value="" />
+        <button class="btn btn-primary" type="submit">Search</button>
+        @*<select asp-for="@Model.CampaignId" class="form-select" asp-items="@(new SelectList(ViewBag.Campaigns,"Id","DiscountPercent">
+            <option value="0">Select campaign</option>
+        </select>*@
+    </form>
+    <table class="mt-3 table table-dark">
+        <thead>
+            <tr>
+                <th>
+                    #
+                </th>
+                <th>
+                    Flower Image
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Price
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var flower in Model)
+            {
+                <tr>
+                    <td>
+                        @flower.Id
+                    </td>
+                    <td>
+                        <img style="width:80px;height:80px;" src="~/assets/images/@flower.FlowerImages.FirstOrDefault().Image" alt="slider image" />
+                    </td>
+                    <td>
+                        @flower.Name
+                    </td>
+
+                    <td>
+                        @flower.Price $
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -116,6 +116,16 @@ namespace Fiorello.Controllers
 
             //return Content("Basket is empty");
         }
+        public IActionResult Search(string keyword)
+        {
+            List<Flower> flowers = _context.Flowers.Include(f=>f.FlowerImages).Include(f=>f.FlowerCategories).ThenInclude(fc=>fc.Category).Where(f=>f.Name.Contains(keyword)).ToList();
+            if (!flowers.Any(f => f.Name.Contains(keyword)))
+            {
+                ModelState.AddModelError("", "No result");
+                
+            }
+            return View(flowers);
+        }
         //public IActionResult SetCookie(int id)
         //{
         //    Flower flower = _context.Flowers.FirstOrDefault(f => f.Id == id);

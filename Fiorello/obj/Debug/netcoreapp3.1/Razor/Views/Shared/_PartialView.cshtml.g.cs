@@ -28,13 +28,13 @@ using Fiorello.Models;
 #nullable disable
 #nullable restore
 #line 3 "C:\Users\User\Documents\BackEnd\Fiorello\Fiorello\Views\_ViewImports.cshtml"
-using Fiorello.ViewModel;
+using Fiorello.ViewModels;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"fdc9a4022ad50628cdf3a9ae8f4f5328568d1c55", @"/Views/Shared/_PartialView.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4810dd83e6dd55f1c6387eae003c893afa2e8019", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"de50368d54413322f609f2896d5958eb3422f93e", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__PartialView : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<Flower>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("alt", new global::Microsoft.AspNetCore.Html.HtmlString(""), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -137,9 +137,9 @@ using Fiorello.ViewModel;
 #line hidden
 #nullable disable
             WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdc9a4022ad50628cdf3a9ae8f4f5328568d1c557563", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdc9a4022ad50628cdf3a9ae8f4f5328568d1c557564", async() => {
                 WriteLiteral("\r\n                        ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fdc9a4022ad50628cdf3a9ae8f4f5328568d1c557842", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "fdc9a4022ad50628cdf3a9ae8f4f5328568d1c557843", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -269,7 +269,7 @@ AddHtmlAttributeValue("", 669, flowerImage.Image, 669, 18, false);
 #line hidden
 #nullable disable
             WriteLiteral("\r\n            </div>\r\n\r\n        </div>\r\n\r\n    </div>\r\n    <div  style=\"display:flex; justify-content:center;margin-top:15px; border:none;\">\r\n        <button class=\"btn btn-success\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdc9a4022ad50628cdf3a9ae8f4f5328568d1c5514913", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fdc9a4022ad50628cdf3a9ae8f4f5328568d1c5514914", async() => {
                 WriteLiteral("Add to Basket");
             }
             );

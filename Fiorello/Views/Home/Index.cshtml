@@ -1,6 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@using Fiorello.ViewModel
 @model HomeVM
 
 <section id="flowers3">
@@ -40,7 +41,7 @@
                     <div id="dropDownCategory">
                         <ul class="flowerTypes">
                             <li><a class="types" data-id="all" href="#">ALL</a></li>
-                            @foreach (Category category  in Model.Categories)
+                            @foreach (Category category in Model.Categories)
                             {
                                 <li><a class="types" data-id="@category.Name.ToLower()" href="#">@category.Name.ToUpper()</a></li>
 
@@ -65,7 +66,7 @@
 
             </div>
             <div class="products d-flex flex-wrap ">
-                @await Html.PartialAsync("_PartialView",Model.Flowers)
+                @await Html.PartialAsync("_PartialView", Model.Flowers)
             </div>
         </div>
     </div>
