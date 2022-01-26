@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,6 +35,15 @@ namespace Fiorello
                 option.UseSqlServer(Configuration.GetConnectionString("Default"));
             });
             services.AddScoped<LayoutServices>();
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromSeconds(100);
+            });
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings
+            {
+                Formatting = Newtonsoft.Json.Formatting.Indented,
+                ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            };
             services.AddHttpContextAccessor();
             services.AddIdentity<AppUser, IdentityRole>(option =>
             {
@@ -49,9 +59,10 @@ namespace Fiorello
 
             }).AddDefaultTokenProviders().AddEntityFrameworkStores<AppDbContext>();
         }
+       
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -67,8 +78,7 @@ namespace Fiorello
             app.UseStaticFiles();
 
             app.UseRouting();
-
-            app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>

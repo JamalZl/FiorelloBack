@@ -34,6 +34,7 @@ namespace Fiorello.Models
         [NotMapped]
 
         public List<int>  ImageIds { get; set; }
+        public List<BasketItem> BasketItems { get; set; }
 
 
     }

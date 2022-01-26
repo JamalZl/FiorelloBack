@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace FiorelloBack.ViewModels
 {
-    public class BasketVM
+    public class BasketCookieItemVM
     {
-        public List<BasketItemVM> BasketItems { get; set; }
-        public double TotalPrice { get; set; }
+        public int Id { get; set; }
         public int Count { get; set; }
     }
 }

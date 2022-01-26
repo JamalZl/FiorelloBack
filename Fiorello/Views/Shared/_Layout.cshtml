@@ -213,22 +213,36 @@
                             </ul>
                         </div>
                         <div class="search">
-                                            <a asp-controller="flower" asp-action="search"><i class="fas fa-search"></i></a>
+                            <a asp-controller="flower" asp-action="search"><i class="fas fa-search"></i></a>
                         </div>
                         <div style="height: 100%; display:flex; align-items:center; "
                              class="search-cart col-lg-2 d-flex justify-content-evenly">
                             <div class="container">
                                 <div class="cart">
                                     <i class="fas fa-shopping-bag">
-                                        <div class="basketProductCount">0</div>
+                                        <div class="basketProductCount">@layoutService.ShowBasket().BasketItems.Count</div>
                                     </i>
                                     <div class="basketView">
                                         <ul class="basketProducts">
+                                            @foreach (var item in layoutService.ShowBasket().BasketItems)
+                                            {
+                                                 <li data-id="@item.Flower.Id">
+                                                    <div class="basketImage">
+                                                        <img src="~/assets/images/@item.Flower.FlowerImages.FirstOrDefault().Image" alt="">
+                                                    </div>
+                                                    <div class="name-price">
+                                                        <p>@item.Flower.Name</p>
+                                                        <span id="@item.Flower.Id">@item.Count<span class="x">x</span></span>
+                                                        <span >@(item.Flower.Campaigns==null ? item.Flower.Price :item.Flower.Price*(100-item.Flower.Campaigns.DiscountPercent)/100)<span>$</span></span>
+                                                    </div>
+                                                    <i class="remove fas fa-times" onClick="removeProduct(this)"></i>
+                                                </li> 
+                                            }
                                         </ul>
                                         <div class="total-viewCart-checkout">
                                             <div class="total">
                                                 <span>TOTAL:</span>
-                                                <span class="basketTotalPrice">0</span>
+                                                <span class="basketTotalPrice">@layoutService.ShowBasket().TotalPrice</span>
                                             </div>
                                             <div class="viewCart-checkout">
                                                 <div class="viewCart">
@@ -243,7 +257,7 @@
                                     <div class="text">
                                         <span>
                                             Cart<span class="basketTotalPrice">
-                                                <span style="margin-left: 5px;">0</span>
+                                                    <span style="margin-left: 5px;">@layoutService.ShowBasket().TotalPrice</span>
                                     </div><span>$</span>
                                 </div>
                             </div>
@@ -503,7 +517,7 @@
     <script src="~/assets/Js/owl.carousel.min.js"></script>
     <script src="~/assets/Js/parallax.min.js"></script>
     <script src="~/assets/Js/home.js"></script>
-    @RenderSection("Scripts",false)
+    @RenderSection("Scripts", false)
     <script src="~/assets/Js/main.js"></script>
 </body>
 

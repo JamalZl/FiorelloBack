@@ -13,7 +13,7 @@ namespace Fiorello.ViewModels
         public string Username { get; set; }
         [Required]
         [DataType(DataType.Password)]
-        public int Password { get; set; }
+        public string Password { get; set; }
         public bool RememberMe { get; set; }
     }
 }

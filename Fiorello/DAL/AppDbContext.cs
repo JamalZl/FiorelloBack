@@ -14,7 +14,7 @@ namespace Fiorello.DAL
         {
 
         }
-     public  DbSet<Settings> Settings { get; set; }
+     public DbSet<Settings> Settings { get; set; }
      public DbSet<Expert> Experts { get; set; }
      public DbSet<Profession> Professions { get; set; }
      public DbSet<Flower> Flowers { get; set; }
@@ -25,5 +25,6 @@ namespace Fiorello.DAL
      public DbSet<Tag> Tags { get; set; }
      public DbSet<FlowerTag> FlowerTags { get; set; }
      public DbSet<Slider> Sliders { get; set; }
+     public DbSet<BasketItem> BasketItems { get; set; }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Fiorello.DAL;
 using Fiorello.Models;
 using Fiorello.ViewModels;
+using FiorelloBack.ViewModels;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
@@ -14,7 +16,8 @@ namespace Fiorello.Controllers
     public class FlowerController : Controller
     {
         private readonly AppDbContext _context;
-        public FlowerController(AppDbContext context)
+        private readonly UserManager<AppUser> _userManager;
+        public FlowerController(AppDbContext context,UserManager<AppUser> userManager)
         {
             _context = context;
         }
@@ -27,94 +30,90 @@ namespace Fiorello.Controllers
             //return Json(flowers);
             return View(flower);
         }
-        public IActionResult AddBasket(int id)
+        public async Task<IActionResult> AddBasket(int id)
         {
-            Flower flower = _context.Flowers.Include(f=>f.Campaigns).FirstOrDefault(f => f.Id == id);
+            Flower flower = _context.Flowers.Include(f => f.Campaigns).FirstOrDefault(f => f.Id == id);
 
-            string basket = HttpContext.Request.Cookies["Basket"];
-            //List<Flower> flowers;
-            if (basket==null)
+            if (User.Identity.IsAuthenticated)
             {
-                BasketVM basketVM = new BasketVM
-                {
-                    BasketItems = new List<BasketItemVM>(),
-                    Count = 1,
-                    TotalPrice = 0
-                };
+                AppUser user = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                BasketItemVM basketItem = new BasketItemVM
+                BasketItem basketItem = _context.BasketItems.FirstOrDefault(b => b.FlowerId == flower.Id && b.AppUserId==user.Id);
+                if (basketItem==null)
                 {
-                    Flower = flower,
-                    Count = 1,
-                };
-
-                basketVM.BasketItems.Add(basketItem);
-                if (flower.CampaignId==null)
-                {
-                    basketVM.TotalPrice =flower.Price;
-                }
-                else
-                {
-                    basketVM.TotalPrice = flower.Price * (100 - flower.Campaigns.DiscountPercent) / 100;
-                }
-                Math.Round(basketVM.TotalPrice, 3);
-                string basketStr = JsonConvert.SerializeObject(basketVM);
-                HttpContext.Response.Cookies.Append("Basket", basketStr);
-                //string basketStr = JsonConvert.SerializeObject(basketVM);
-                //HttpContext.Response.Cookies.Append("Basket", basketStr);
-
-                //flowers = new List<Flower>();
-                //flowers.Add(flower);
-            }
-            else
-            {
-                BasketVM basketVM = JsonConvert.DeserializeObject<BasketVM>(basket);
-                BasketItemVM basketItem = basketVM.BasketItems.FirstOrDefault(b => b.Flower.Id == flower.Id);
-                if (basketItem ==null)
-                {
-                    basketItem = new BasketItemVM
+                    basketItem = new BasketItem
                     {
-                        Flower = flower,
+                        AppUserId = user.Id,
+                        FlowerId = flower.Id,
                         Count = 1
                     };
-                    basketVM.BasketItems.Add(basketItem);
-                    basketVM.Count++;
+                    _context.BasketItems.Add(basketItem);
                 }
                 else
                 {
                     basketItem.Count++;
-                    basketVM.BasketItems.Add(basketItem);
                 }
-                if (flower.CampaignId == null)
+            }
+            else
+            {
+                string basket = HttpContext.Request.Cookies["Basket"];
+
+                if (basket == null)
                 {
-                    basketVM.TotalPrice += basketItem.Flower.Price;
+                    List<BasketCookieItemVM> basketCookieItems = new List<BasketCookieItemVM>();
+
+                    basketCookieItems.Add(new BasketCookieItemVM
+                    {
+                        Id = flower.Id,
+                        Count = 1
+                    });
+
+
+
+                    string basketStr = JsonConvert.SerializeObject(basketCookieItems);
+
+
+                    HttpContext.Response.Cookies.Append("Basket", basketStr);
                 }
                 else
                 {
-                    basketVM.TotalPrice += basketItem.Flower.Price * (100 - basketItem.Flower.Campaigns.DiscountPercent) / 100;
-                }
-                //flowers = JsonConvert.DeserializeObject<List<Flower>>(basket);
-                Math.Round(basketVM.TotalPrice, 3);
-                string basketStr = JsonConvert.SerializeObject(basketVM);
-                HttpContext.Response.Cookies.Append("Basket", basketStr);
+                    List<BasketCookieItemVM> basketCookieItems = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(basket);
 
-                //flowers.Add(flower);
+                    BasketCookieItemVM cookieItem = basketCookieItems.FirstOrDefault(c => c.Id == flower.Id);
+
+                    if (cookieItem == null)
+                    {
+                        cookieItem = new BasketCookieItemVM
+                        {
+                            Id = flower.Id,
+                            Count = 1
+                        };
+                        basketCookieItems.Add(cookieItem);
+                    }
+                    else
+                    {
+                        cookieItem.Count++;
+                    }
+
+                    string basketStr = JsonConvert.SerializeObject(basketCookieItems);
+
+                    HttpContext.Response.Cookies.Append("Basket", basketStr);
+
+                }
             }
+            _context.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
+
         public IActionResult ShowBasket()
         {
             string basketStr = HttpContext.Request.Cookies["Basket"];
-            //if (string.IsNullOrEmpty(basketStr))
-            
             if (!string.IsNullOrEmpty(basketStr))
             {
-                BasketVM basket = JsonConvert.DeserializeObject<BasketVM>(basketStr);
+                List<BasketCookieItemVM> basket = JsonConvert.DeserializeObject<List<BasketCookieItemVM>>(basketStr);
                 return Json(basket);
             }
             return Content("Basket is empty");
-
-            //return Content("Basket is empty");
         }
         public IActionResult Search(string keyword)
         {

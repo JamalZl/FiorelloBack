@@ -10,5 +10,7 @@ namespace Fiorello.Models
     {
         public string Fullname { get; set; }
 
+        public List<BasketItem> BasketItems { get; set; }
+
     }
 }

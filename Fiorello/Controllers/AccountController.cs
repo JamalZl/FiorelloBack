@@ -65,7 +65,7 @@ namespace Fiorello.Controllers
                 return View();
             }
 
-            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user.UserName,login.Username, login.RememberMe, true);
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(user.UserName,login.Password, login.RememberMe, true);
 
             if (!result.Succeeded)
             {
