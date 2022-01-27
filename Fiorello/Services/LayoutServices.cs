@@ -41,7 +41,15 @@ namespace Fiorello.Services
                     Flower flower = _context.Flowers.Include(f => f.Campaigns).FirstOrDefault(f => f.Id == item.FlowerId);
                     if (flower!=null)
                     {
-
+                        BasketItemVM basketItemVM = new BasketItemVM
+                        {
+                            Flower = flower,
+                            Count = item.Count
+                        };
+                        basketItemVM.Price = flower.CampaignId == null ? flower.Price : flower.Price * (100 - flower.Campaigns.DiscountPercent) / 100;
+                        basketData.BasketItems.Add(basketItemVM);
+                        basketData.Count++;
+                        basketData.TotalPrice += basketItemVM.Price * basketItemVM.Count;
                     }
 
                 }

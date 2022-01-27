@@ -20,6 +20,8 @@ namespace Fiorello.Controllers
         public FlowerController(AppDbContext context,UserManager<AppUser> userManager)
         {
             _context = context;
+            _userManager = userManager;
+
         }
         public IActionResult Details(int id,int categoryId)
         {
